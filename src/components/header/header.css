@@ -1,0 +1,56 @@
+.header_container {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+
+.particles {
+    position: absolute;
+    width: 100vw;
+    height: 600px;
+}
+
+.header_rectangle {
+    background: #b7cdb2;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    top: 100px;
+    left: 0;
+    border-radius: 10px;
+    z-index: 5;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transform: rotate(30deg);
+    overflow: hidden;
+}
+
+.rectangle_text {
+    font-size: 160px;
+    color: #fff;
+    white-space: nowrap;
+    transform: rotate(-30deg);
+    transform-origin: top left;
+}
+
+.header_text-outer {
+    position: absolute;
+    top: -13px;
+    left: 79px;
+    font-size: 160px;
+    white-space: nowrap;
+    color: #b7cdb2;
+}
+
+.header_text-typed {
+    position: absolute;
+    bottom: 30%;
+    left: 20%;
+    font-size: 40px;
+    color: #458FFF;
+    z-index: 10;
+}

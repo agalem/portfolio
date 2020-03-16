@@ -1,0 +1,9 @@
+.project_container {
+    height: 400px;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    background-color: #282c34;
+    margin: 20px;
+    cursor: pointer;
+}

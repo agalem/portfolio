@@ -1,0 +1,28 @@
+.navbar_container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar_container ul {
+    text-align: right;
+    list-style: none;
+}
+
+.navbar_container ul li {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.link  {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #458FFF;
+}
+
+.lang  {
+    text-decoration: none;
+    font-size: 1.2rem;
+}
