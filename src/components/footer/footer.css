@@ -1,0 +1,14 @@
+.footer_container {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer_container p {
+    margin-left: 20px;
+    color: #C56494;
+    font-size: 0.7rem;
+}

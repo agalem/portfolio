@@ -14,7 +14,7 @@
 }
 
 .header_rectangle {
-    background: #b7cdb2;
+    background: #C56494;
     height: 500px;
     width: 500px;
     position: relative;
@@ -43,14 +43,14 @@
     left: 79px;
     font-size: 160px;
     white-space: nowrap;
-    color: #b7cdb2;
+    color: #C56494;
 }
 
 .header_text-typed {
     position: absolute;
-    bottom: 30%;
-    left: 20%;
+    bottom: 20%;
+    left: 30px;
     font-size: 40px;
-    color: #458FFF;
+    color: #ffffff;
     z-index: 10;
 }

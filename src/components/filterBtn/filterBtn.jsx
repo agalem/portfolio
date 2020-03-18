@@ -14,7 +14,7 @@ const FilterBtn = (props) => {
     };
 
     return (
-        <button className={'filter_btn'} onClick={handleClick} style={{'background-color': isActive ? activeColor : notActiveColor}}>{text}</button>
+        <button className={'filter_btn'} onClick={handleClick} style={{backgroundColor: isActive ? activeColor : notActiveColor}}>{text}</button>
     )
 };
 
