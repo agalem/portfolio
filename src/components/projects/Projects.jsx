@@ -6,7 +6,7 @@ import Filter from "../filter/Filter";
 
 const Projects = () => {
     return (
-        <div className='projects_container' id={'#projects'}>
+        <section className='projects_container' id={'#projects'}>
             <div className='projects_intro'>
                 <div className='projects_intro-text'>
                     <p>
@@ -23,7 +23,7 @@ const Projects = () => {
                 <Project/>
                 <Project/>
             </div>
-        </div>
+        </section>
     )
 };
 

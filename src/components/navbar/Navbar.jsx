@@ -22,9 +22,11 @@ const Navbar = (props) => {
     };
 
     const handleMouseOut = () => {
-        const element = document.getElementById(selectedLink)
+        const element = document.getElementById(selectedLink);
         const offsetPosition = getOffset(element);
-        setActivePosition(offsetPosition.left - 20);
+        let position = offsetPosition.left;
+        selectedLink === '-link' ? position = -250 : position -= 20;
+        setActivePosition(position);
     };
 
     const animate = (e) => {
