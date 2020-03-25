@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     position: relative;
 }
 
@@ -14,12 +15,16 @@
     color: #66c44e;
 }
 
-.contact--img_container {
-    display: block;
+.contact--flex_img_container {
     height: 140px;
     position: absolute;
     right: 40px;
     bottom: 40px;
+}
+
+.contact--img_container {
+    height: 100%;
+    position: relative;
 }
 
 .contact--img {
@@ -96,4 +101,16 @@
     transform: rotate(30deg);
     animation-timing-function: ease-in-out;
     animation: movement-rotation 4s forwards infinite;
+}
+
+@media screen and (max-width: 895px) {
+    .contact--flex_img_container {
+        position: static;
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    .contact_link {
+        margin-bottom: 150px;
+    }
 }

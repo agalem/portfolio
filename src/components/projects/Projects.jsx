@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './projects.css';
 
 import Project from "../project/Project";
 import Filter from "../filter/Filter";
 
+const throttle = require('lodash.throttle');
+
 const Projects = () => {
+
+    const DOM_Element = useRef(null);
+
+    const handleWindowScroll = () => {
+        console.log("Position from top: ", document.getElementById('#projects').offsetTop)
+        console.log("Current difference with scroll ", window.scrollY);
+        console.log("Element height ", document.getElementById('#projects').offsetHeight);
+        console.log(DOM_Element.current.offsetTop);
+        console.log(DOM_Element.current.clientHeight)
+    };
+
+
+    const handleWindowScrollThrottled = throttle(handleWindowScroll, 250);
+
+    //window.innerHeight
+    useEffect(() => {
+        window.addEventListener('scroll', handleWindowScrollThrottled);
+
+        return () => {
+            window.removeEventListener('scroll', handleWindowScrollThrottled);
+        }
+    },[]);
+
+
     return (
-        <section className='projects_container' id={'#projects'}>
+        <section className='projects_container' id={'#projects'} ref={DOM_Element}>
             <div className='projects_intro'>
                 <div className='projects_intro-text'>
                     <p>
