@@ -5,5 +5,6 @@ const en = {
         about: 'About',
         contact: 'Contact'
     }
-
 };
+
+export default en;

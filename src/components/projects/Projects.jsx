@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useContext, useEffect, useRef} from 'react';
 import './projects.css';
 
 import Project from "../project/Project";
@@ -23,11 +23,12 @@ const Projects = () => {
 
     //window.innerHeight
     useEffect(() => {
-        window.addEventListener('scroll', handleWindowScrollThrottled);
-
-        return () => {
-            window.removeEventListener('scroll', handleWindowScrollThrottled);
-        }
+        // window.addEventListener('scroll', handleWindowScrollThrottled);
+        //
+        // return () => {
+        //     window.removeEventListener('scroll', handleWindowScrollThrottled);
+        // }
+        //
     },[]);
 
 

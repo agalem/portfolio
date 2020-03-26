@@ -4,6 +4,7 @@ import Particles from "react-particles-js";
 import Typed from 'react-typed';
 
 import Navbar from "../navbar/Navbar";
+import Text from "../text/Text";
 
 const Header = () => {
     return (
@@ -67,9 +68,9 @@ const Header = () => {
                     "retina_detect": true
                 }} />
             <div className='header_rectangle'>
-                <p className='rectangle_text'>Hi. I'm Aga.</p>
+                <p className='rectangle_text'><Text textId="welcomeHeader"/></p>
             </div>
-            <p className='header_text-outer'>Hi. I'm Aga.</p>
+            <p className='header_text-outer'><Text textId="welcomeHeader"/></p>
             <Typed
                 className='header_text-typed'
                 strings={[

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import { Link, withRouter } from 'react-router-dom';
 import './navabar.css';
 
+import LanguageSelector from "../languageSelector/LanguageSelector";
+
 const Navbar = (props) => {
     const {hash} = props.location;
     const [activePosition, setActivePosition] = useState(-250);
@@ -73,7 +75,7 @@ const Navbar = (props) => {
                     </Link>
                 </li>
                 <li>
-                    <a href={'/'} className='lang'><span role={'img'} aria-label={'change language to polish'}>🇵🇱</span></a>
+                    <LanguageSelector/>
                 </li>
             </ul>
             <span className={'active_section'} style={{left: activePosition + 'px'}}/>

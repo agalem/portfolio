@@ -2,7 +2,6 @@ import React from "react";
 import {ReactComponent as Logo} from "../../assets/images/developer.svg";
 import './about.css';
 
-
 const About = () => {
     return (
         <section className='about_container' id={'#about'}>
