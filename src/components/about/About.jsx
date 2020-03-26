@@ -2,10 +2,14 @@ import React from "react";
 import {ReactComponent as Logo} from "../../assets/images/developer.svg";
 import './about.css';
 
+import Text from "../text/Text";
+
 const About = () => {
     return (
         <section className='about_container' id={'#about'}>
-            <h2 className='about_title'>About me</h2>
+            <h2 className='about_title'>
+                <Text textId="about"/>
+            </h2>
             <div className='about_content' >
                 <div className='about--img_link_container'>
                     <span className='about--img_border--outer'/>

@@ -8,20 +8,22 @@ import Contact from "./components/contact/Contact";
 import Footer from './components/footer/Footer';
 import ScrollHandler from "./components/scrollHandler/ScrollHandler";
 import {LanguageProvider} from "./contexts/LanguageContext";
-
+import {ScrollPositionProvider} from "./contexts/ScrollContext";
 
 function App() {
   return (
       <BrowserRouter>
           <LanguageProvider>
-          <div className="App">
-              <ScrollHandler/>
-              <Header/>
-              <Projects/>
-              <About/>
-              <Contact/>
-              <Footer/>
-          </div>
+              <div className="App">
+                  <ScrollHandler/>
+                  <ScrollPositionProvider>
+                      <Header/>
+                      <Projects/>
+                      <About/>
+                      <Contact/>
+                  </ScrollPositionProvider>
+                  <Footer/>
+              </div>
           </LanguageProvider>
       </BrowserRouter>
   );

@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { Link, withRouter } from 'react-router-dom';
 import './navabar.css';
 
+import { ScrollContext } from "../../contexts/ScrollContext";
 import LanguageSelector from "../languageSelector/LanguageSelector";
+import Text from "../text/Text";
 
 const Navbar = (props) => {
     const {hash} = props.location;
     const [activePosition, setActivePosition] = useState(-250);
     const [selectedLink, setSelectedLink] = useState(`${hash}-link`);
+    const scrollContext = useContext(ScrollContext);
 
     useEffect(() => {
         const element = document.getElementById(selectedLink);
@@ -16,6 +19,15 @@ const Navbar = (props) => {
             setActivePosition(offsetPosition.left - 20);
         }
     }, [selectedLink]);
+
+    useEffect(() => {
+        const element = document.getElementById(scrollContext.activeSection + "-link");
+        if (element) {
+            element.classList.add('animate');
+            const offsetPosition = getOffset(element);
+            setActivePosition(offsetPosition.left - 20);
+        }
+    }, [scrollContext.activeSection])
 
     const handleHover = (e) => {
         const elem  = e.target;
@@ -40,9 +52,15 @@ const Navbar = (props) => {
     };
 
     const handleClick = (e) => {
+        const { activeSection, setActiveSection } = scrollContext;
         e.persist();
         animate(e);
-        setSelectedLink(e.target.id);
+
+        const clickedLinkId = e.target.id;
+        if (activeSection !== clickedLinkId) {
+            setSelectedLink(clickedLinkId);
+            setActiveSection(clickedLinkId.slice(0, -5));
+        }
     };
 
     const getOffset = (elem) => {
@@ -61,17 +79,17 @@ const Navbar = (props) => {
             <ul>
                 <li>
                     <Link to={'/#projects'} id={'#projects-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
-                        Projects
+                        <Text textId="navigation_projects"/>
                     </Link>
                 </li>
                 <li>
                     <Link to={'/#about'} id={'#about-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
-                        About Me
+                        <Text textId="navigation_about"/>
                     </Link>
                 </li>
                 <li>
                     <Link to={'/#contact'} id={'#contact-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
-                        Contact
+                        <Text textId="navigation_contact"/>
                     </Link>
                 </li>
                 <li>

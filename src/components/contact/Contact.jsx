@@ -4,6 +4,7 @@ import mail from '../../assets/images/mail.jpg';
 
 import {faPaperPlane} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Text from "../text/Text";
 
 const Contact = () => {
     return (
@@ -17,7 +18,9 @@ const Contact = () => {
                     </a>
                 </div>
             </div>
-            <a href={'/'} className={'contact_link'}><span><FontAwesomeIcon icon={faPaperPlane} className={'icon_paper-plane'}/></span>Contact me</a>
+            <a href={'/'} className={'contact_link'}><span><FontAwesomeIcon icon={faPaperPlane} className={'icon_paper-plane'}/></span>
+                <Text textId="contact"/>
+            </a>
         </section>
     )
 };
