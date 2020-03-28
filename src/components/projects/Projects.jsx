@@ -31,6 +31,7 @@ const Projects = () => {
         if (topDistance <= 25 && bottomDistance >= 25) {
             if (activeSection !== "#projects") {
                 setActiveSection("#projects");
+                window.history.pushState("projects", "Projects", "/projects")
             }
         }
 
@@ -41,13 +42,13 @@ const Projects = () => {
 
     //window.innerHeight
     useEffect(() => {
-        window.addEventListener('scroll', handleWindowScrollThrottled);
+        // window.addEventListener('scroll', handleWindowScrollThrottled);
+        //
+        // return () => {
+        //     window.removeEventListener('scroll', handleWindowScrollThrottled);
+        // }
 
-        return () => {
-            window.removeEventListener('scroll', handleWindowScrollThrottled);
-        }
-
-    },[]);
+    },[handleWindowScrollThrottled]);
 
 
     return (

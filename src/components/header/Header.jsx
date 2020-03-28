@@ -1,12 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './header.css';
 import Particles from "react-particles-js";
 import Typed from 'react-typed';
 
 import Navbar from "../navbar/Navbar";
 import Text from "../text/Text";
+import {LanguageContext} from "../../contexts/LanguageContext";
 
 const Header = () => {
+    const languageContext = useContext(LanguageContext)
+    const [language, setLanguage] = useState(languageContext.language.id);
+
+    useEffect(() => {
+        setLanguage(languageContext.language.id);
+    },[languageContext.language.id]);
+
     return (
         <header className="header_container">
             <Navbar/>
@@ -68,9 +76,13 @@ const Header = () => {
                     "retina_detect": true
                 }} />
             <div className='header_rectangle'>
-                <p className='rectangle_text'><Text textId="welcomeHeader"/></p>
+                <p className={(language === 'pl') ? 'rectangle_text media_pl' : 'rectangle_text media_en'}>
+                    <Text textId="welcomeHeader"/>
+                </p>
             </div>
-            <p className='header_text-outer'><Text textId="welcomeHeader"/></p>
+            <p className={(language === 'pl') ? 'header_text-outer media_pl' : 'header_text-outer media_en'}>
+                <Text textId="welcomeHeader"/>
+            </p>
             <Typed
                 className='header_text-typed'
                 strings={[

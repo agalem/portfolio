@@ -9,6 +9,7 @@ import Footer from './components/footer/Footer';
 import ScrollHandler from "./components/scrollHandler/ScrollHandler";
 import {LanguageProvider} from "./contexts/LanguageContext";
 import {ScrollPositionProvider} from "./contexts/ScrollContext";
+import SectionChanger from "./components/sectionChanger/SectionChanger";
 
 function App() {
   return (
@@ -17,10 +18,18 @@ function App() {
               <div className="App">
                   <ScrollHandler/>
                   <ScrollPositionProvider>
-                      <Header/>
-                      <Projects/>
-                      <About/>
-                      <Contact/>
+                      <SectionChanger componentName={''}>
+                        <Header/>
+                      </SectionChanger>
+                      <SectionChanger componentName={'projects'}>
+                         <Projects/>
+                      </SectionChanger>
+                      <SectionChanger componentName={'about'}>
+                        <About/>
+                      </SectionChanger>
+                      <SectionChanger componentName={'contact'}>
+                        <Contact/>
+                      </SectionChanger>
                   </ScrollPositionProvider>
                   <Footer/>
               </div>

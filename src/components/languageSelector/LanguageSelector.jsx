@@ -17,9 +17,11 @@ const LanguageSelector = () => {
 
     let flagEmoji;
     if (currentLanguage === 'en') {
-        flagEmoji = "\ud83c\uddf5" + "\ud83c\uddf1";
+        //polish flag
+        flagEmoji = "\ud83c\uddf5\ud83c\uddf1";
     } else {
-        flagEmoji = "\ud83c\uddec" + "\ud83c\udde7"
+        //british flag
+        flagEmoji = "\ud83c\uddec\ud83c\udde7"
     }
 
     return (

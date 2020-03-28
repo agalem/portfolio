@@ -21,13 +21,16 @@ const Navbar = (props) => {
     }, [selectedLink]);
 
     useEffect(() => {
+        if (scrollContext.activeSection === '#') {
+            setActivePosition(-250);
+        }
         const element = document.getElementById(scrollContext.activeSection + "-link");
         if (element) {
-            element.classList.add('animate');
+            animateDOMElement(element);
             const offsetPosition = getOffset(element);
             setActivePosition(offsetPosition.left - 20);
         }
-    }, [scrollContext.activeSection])
+    }, [scrollContext.activeSection]);
 
     const handleHover = (e) => {
         const elem  = e.target;
@@ -36,11 +39,28 @@ const Navbar = (props) => {
     };
 
     const handleMouseOut = () => {
-        const element = document.getElementById(selectedLink);
+        const { activeSection } = scrollContext;
+        const element = document.getElementById(activeSection+ "-link");
         const offsetPosition = getOffset(element);
         let position = offsetPosition.left;
-        selectedLink === '-link' ? position = -250 : position -= 20;
+        activeSection === '#' || activeSection === '' ? position = -250 : position -= 20;
         setActivePosition(position);
+    };
+
+    const handleClick = (e) => {
+        const { setActiveSection, setIsScrolling } = scrollContext;
+        e.persist();
+        animate(e);
+
+        //prevent moving underlining span during page auto scrolling after click
+        setIsScrolling(true);
+        setTimeout(() => setIsScrolling(false), 800);
+
+        const clickedLinkId = e.target.id;
+        if (selectedLink !== clickedLinkId) {
+            setSelectedLink(clickedLinkId);
+            setActiveSection(clickedLinkId.slice(0, -5));
+        }
     };
 
     const animate = (e) => {
@@ -48,19 +68,15 @@ const Navbar = (props) => {
         e.target.classList.add('animate');
         setTimeout(() => {
             e.target.classList.remove('animate');
-        },700);
+        },500);
     };
 
-    const handleClick = (e) => {
-        const { activeSection, setActiveSection } = scrollContext;
-        e.persist();
-        animate(e);
-
-        const clickedLinkId = e.target.id;
-        if (activeSection !== clickedLinkId) {
-            setSelectedLink(clickedLinkId);
-            setActiveSection(clickedLinkId.slice(0, -5));
-        }
+    const animateDOMElement = (element) => {
+        element.classList.remove('animate');
+        element.classList.add('animate');
+        setTimeout(() => {
+            element.classList.remove('animate');
+        }, 500);
     };
 
     const getOffset = (elem) => {
