@@ -3,7 +3,8 @@ import {languageOptions} from "../../languages";
 import {LanguageContext} from "../../contexts/LanguageContext";
 import './languageSelector.css';
 
-const LanguageSelector = () => {
+const LanguageSelector = props => {
+    const { handleMobileMenu } = props;
     const [currentLanguage, setCurrentLanguage] = useState('en');
     const languageContext = useContext(LanguageContext);
 
@@ -13,6 +14,7 @@ const LanguageSelector = () => {
         const selectedLanguage = languageOptions.find(item => item.id === clickedBtnValue);
         setCurrentLanguage(clickedBtnValue);
         languageContext.setLanguage(selectedLanguage);
+        handleMobileMenu();
     };
 
     let flagEmoji;

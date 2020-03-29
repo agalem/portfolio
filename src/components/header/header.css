@@ -116,3 +116,25 @@
         bottom: 5px;
     }
 }
+
+@media screen and (max-width: 400px) {
+    .header_text-outer {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .media_pl {
+        margin: 0;
+        font-size: 80px;
+    }
+    .media_en {
+        margin: 0;
+        font-size: 80px;
+    }
+    .header_text-typed {
+        font-size: 30px;
+        bottom: 15px;
+    }
+}

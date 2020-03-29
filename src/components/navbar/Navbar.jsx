@@ -5,9 +5,13 @@ import './navabar.css';
 import { ScrollContext } from "../../contexts/ScrollContext";
 import LanguageSelector from "../languageSelector/LanguageSelector";
 import Text from "../text/Text";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBars} from '@fortawesome/free-solid-svg-icons';
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = (props) => {
     const {hash} = props.location;
+    const [isOpen, setIsOpen] = useState(false);
     const [activePosition, setActivePosition] = useState(-250);
     const [selectedLink, setSelectedLink] = useState(`${hash}-link`);
     const scrollContext = useContext(ScrollContext);
@@ -61,6 +65,10 @@ const Navbar = (props) => {
             setSelectedLink(clickedLinkId);
             setActiveSection(clickedLinkId.slice(0, -5));
         }
+
+        if (window.innerWidth <= 500) {
+            handleMobileMenu();
+        }
     };
 
     const animate = (e) => {
@@ -90,30 +98,49 @@ const Navbar = (props) => {
         return { top: y, left: x};
     };
 
+    const handleMobileMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <nav className='navbar_container'>
-            <ul>
-                <li>
-                    <Link to={'/#projects'} id={'#projects-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
-                        <Text textId="navigation_projects"/>
-                    </Link>
-                </li>
-                <li>
-                    <Link to={'/#about'} id={'#about-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
-                        <Text textId="navigation_about"/>
-                    </Link>
-                </li>
-                <li>
-                    <Link to={'/#contact'} id={'#contact-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
-                        <Text textId="navigation_contact"/>
-                    </Link>
-                </li>
-                <li>
-                    <LanguageSelector/>
-                </li>
-            </ul>
-            <span className={'active_section'} style={{left: activePosition + 'px'}}/>
-        </nav>
+        <React.Fragment>
+            {!isOpen &&
+                <React.Fragment>
+                    <FontAwesomeIcon icon={faBars} className={'menu_icon'} onClick={handleMobileMenu}/>
+                    <FontAwesomeIcon icon={faBars} className={'menu_icon--shadow'} />
+                </React.Fragment>
+            }
+            {
+                isOpen &&
+                    <React.Fragment>
+                        <FontAwesomeIcon icon={faTimes} className={'menu_icon'} onClick={handleMobileMenu}/>
+                        <FontAwesomeIcon icon={faTimes} className={'menu_icon--shadow'} />
+                    </React.Fragment>
+            }
+            <nav className={(isOpen) ? 'navbar_container active' : 'navbar_container'}>
+                <ul>
+                    <li>
+                        <Link to={'/#projects'} id={'#projects-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
+                            <Text textId="navigation_projects"/>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={'/#about'} id={'#about-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
+                            <Text textId="navigation_about"/>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to={'/#contact'} id={'#contact-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
+                            <Text textId="navigation_contact"/>
+                        </Link>
+                    </li>
+                    <li>
+                        <LanguageSelector handleMobileMenu={handleMobileMenu}/>
+                    </li>
+                </ul>
+                <span className={'active_section'} style={{left: activePosition + 'px'}}/>
+            </nav>
+        </React.Fragment>
     )
 };
 

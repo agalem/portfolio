@@ -21,18 +21,21 @@ const SectionChanger = props => {
         }
 
         if (componentName === 'projects' || componentName === '') {
+            //console.log("Projects or Header: ", topDistance, " ", bottomDistance);
             if (topDistance <= 25 && bottomDistance > 25) {
                 setActiveSectionHandler(activeSection, setActiveSection);
             }
         }
 
         if (componentName === 'about') {
+            //console.log("About ", topDistance, " ", bottomDistance - window.innerHeight);
             if (topDistance <= 25 && (bottomDistance - window.innerHeight) > -230 ) {
                 setActiveSectionHandler(activeSection, setActiveSection);
             }
         }
 
         if (componentName === 'contact') {
+            //console.log("Contact: ", bottomDistance - window.innerHeight)
             if ((bottomDistance - window.innerHeight) <= 70) {
                 setActiveSectionHandler(activeSection, setActiveSection)
             }
