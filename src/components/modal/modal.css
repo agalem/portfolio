@@ -1,0 +1,152 @@
+.modal_background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.8;
+    z-index: 99;
+    transition: top 0.5s;
+}
+
+.modal_container {
+    width: 70vw;
+    height: auto;
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: top 0.5s;
+    padding-bottom: 100px;
+}
+
+.modal_content {
+    width: 100%;
+}
+
+.modal_columns {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+}
+
+.modal_block {
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+}
+
+.modal_block.narrow {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_snapshot {
+    width: 220px;
+    height: 250px;
+    background: #282c34;
+}
+
+.modal_snapshot--links a {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    margin: 20px 0;
+    text-decoration: none;
+    color: #458FFF;
+}
+
+.modal_snapshot--links a:hover {
+    text-decoration: underline;
+}
+
+.project_description {
+    text-align: left;
+    width: 90%;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.project_description p {
+    font-size: 16px;
+}
+
+.project_stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.project_stack span {
+    display: block;
+    margin: 20px 40px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.modal_btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.modal_icon {
+    color: #448fff;
+    position: absolute;
+    top: 1px;
+    left: 5px;
+}
+
+.modal_icon--shadow {
+    color: #282c34;
+    opacity: 0.4;
+}
+
+.modal_title {
+    font-size: 70px;
+}
+
+.modal_row {
+    font-size: 30px;
+    width: 100%;
+    margin: 20px 20px 40px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.brand_icon {
+    margin-right: 40px;
+    color: #C56494;
+}
+
+.modal_link {
+    font-size: 40px;
+    text-decoration: none;
+    color: #282c34;
+    background: #fff;
+    border: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.modal_link:hover {
+    text-decoration: underline;
+}
