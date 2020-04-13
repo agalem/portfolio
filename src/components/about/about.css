@@ -71,10 +71,24 @@
 
 .about_text {
     width: 60%;
-    margin-right: 30px;
+    margin-right: 20px;
     font-size: 1.6rem;
     color: #282c34;
     min-width: 500px;
+    margin-left: 15px;
+}
+
+.icons_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 20px;
+}
+
+.icon--tech {
+    margin: 10px;
+    font-size: 60px;
 }
 
 @media screen and (max-width: 500px){

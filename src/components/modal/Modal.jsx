@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import './modal.css';
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -9,13 +9,15 @@ import {faEnvelopeOpenText} from "@fortawesome/free-solid-svg-icons";
 import {faSpaceShuttle} from "@fortawesome/free-solid-svg-icons";
 
 const ModalBackground = props => {
-    const hideModal = () => {
-        props.setIsVisible(false);
-    };
+    const {isVisible, hideModal} = props;
+
     return (
-        <div style={{top: (props.isVisible) ? '0' : '150vh'}}
+        <div style={{top: (isVisible) ? '0' : '150vh'}}
             className={'modal_background'}
-            onClick={hideModal}>
+            onClick={hideModal}
+            aria-hidden={!isVisible}
+        >
+            {props.children}
         </div>
     )
 };
@@ -29,7 +31,7 @@ const ContactModal = props => {
     };
 
     return (
-        <section>
+        <section className={'modal_content'}>
             <h3 className={'modal_title'} style={{color: props.headerColor}}>
                 Contact me
             </h3>
@@ -102,25 +104,26 @@ const ProjectModal = props => {
     )
 }
 
-const Modal = () => {
-    const [isVisible, setIsVisible] = useState(true);
+const Modal = props => {
+    const {type, isVisible, hideModal} = props;
 
-    const hideModal = () => {
-        setIsVisible(false);
-    };
 
     return (
-        <React.Fragment>
-            <ModalBackground isVisible={isVisible} setIsVisible={setIsVisible}/>
-            <div className={'modal_container'} style={{top: (isVisible) ? 'calc(50% - 40vh)' : '-150vh'}}>
+        <ModalBackground isVisible={isVisible} hideModal={hideModal}>
+            <div className={(type.toLowerCase() === 'contact') ? 'modal_container contact_container_style' : 'modal_container project_container_style'}
+                 aria-hidden={!isVisible}>
                 <button className={'modal_btn'} onClick={hideModal}>
                     <FontAwesomeIcon icon={faTimes} className={'modal_icon--shadow'}/>
                     <FontAwesomeIcon icon={faTimes} className={'modal_icon'} />
                 </button>
-                {/*<ContactModal headerColor={'#66c44e'}/>*/}
+                {(type.toLowerCase() === 'contact') &&
+                <ContactModal headerColor={'#66c44e'}/>
+                }
+                {(type.toLowerCase() === 'project') &&
                 <ProjectModal headerColor={'#458FFF'}/>
+                }
             </div>
-        </React.Fragment>
+        </ModalBackground>
     )
 };
 

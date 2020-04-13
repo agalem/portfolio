@@ -2,6 +2,9 @@ import React from "react";
 import {ReactComponent as Logo} from "../../assets/images/developer.svg";
 import './about.css';
 
+import {faHtml5, faCss3Alt, faJsSquare, faNode, faReact} from '@fortawesome/free-brands-svg-icons';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 import Text from "../text/Text";
 
 const About = () => {
@@ -23,6 +26,13 @@ const About = () => {
                     maximus ligula augue, vitae volutpat justo blandit nec. Aliquam erat volutpat.
                     Aliquam libero justo, hendrerit eu dapibus in, suscipit id augue. Integer sed
                     odio congue, porta nibh et, vulputate ligula.</p>
+            </div>
+            <div className={"icons_container"}>
+                <FontAwesomeIcon icon={faHtml5} className={'icon--tech'} style={{color: '#E44D26'}}/>
+                <FontAwesomeIcon icon={faCss3Alt} className={'icon--tech'} style={{color: '#026DB5'}}/>
+                <FontAwesomeIcon icon={faJsSquare} className={'icon--tech'} style={{color: '#F0D91D'}}/>
+                <FontAwesomeIcon icon={faReact} className={'icon--tech'} style={{color: '#5ED5F4'}}/>
+                <FontAwesomeIcon icon={faNode} className={'icon--tech'} style={{ color: '#7CB801' }}/>
             </div>
         </section>
     )

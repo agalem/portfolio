@@ -7,13 +7,16 @@
     flex-direction: column;
     position: relative;
     padding-top: 40px;
+    padding-bottom: 80px;
 }
 
-.contact_link {
-    text-decoration: none;
+.contact_btn {
     font-size: 4rem;
     font-weight: 600;
     color: #66c44e;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 
 .contact--flex_img_container {

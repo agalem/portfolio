@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './contact.css';
 import mail from '../../assets/images/mail.jpg';
 
@@ -8,6 +8,16 @@ import Text from "../text/Text";
 import Modal from "../modal/Modal";
 
 const Contact = () => {
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    const handleClick = () => {
+        setModalVisible(true);
+    };
+
+    const hideModal = () => {
+        setModalVisible(false);
+    }
+
     return (
         <section className={'contact_container'} id={'#contact'}>
             <div className='contact--flex_img_container'>
@@ -19,10 +29,13 @@ const Contact = () => {
                     </a>
                 </div>
             </div>
-            <a href={'/'} className={'contact_link'}><span><FontAwesomeIcon icon={faPaperPlane} className={'icon_paper-plane'}/></span>
+            <button className={'contact_btn'} onClick={handleClick}>
+                <span>
+                    <FontAwesomeIcon icon={faPaperPlane} className={'icon_paper-plane'}/>
+                </span>
                 <Text textId="contact"/>
-            </a>
-            <Modal/>
+            </button>
+            <Modal type={'contact'} isVisible={isModalVisible} hideModal={hideModal}/>
         </section>
     )
 };
