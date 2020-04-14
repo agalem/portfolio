@@ -38,13 +38,13 @@ const ContactModal = props => {
                 <Text textId={"contact"}/>
             </h3>
             <p className={'modal_row'}>
-                <a href={'/'} target={'_blank'} rel="noopener noreferrer" className={'modal_link'}>
+                <a href={'https://www.linkedin.com/in/agalem/'} target={'_blank'} rel="noopener noreferrer" className={'modal_link'}>
                     <FontAwesomeIcon icon={faLinkedin} className={'brand_icon'}/>
                     Linkedin
                 </a>
             </p>
             <p className={'modal_row'}>
-                <a href={'/'} target={'_blank'} rel="noopener noreferrer" className={'modal_link'}>
+                <a href={'https://github.com/agalem'} target={'_blank'} rel="noopener noreferrer" className={'modal_link'}>
                     <FontAwesomeIcon icon={faGithubSquare} className={'brand_icon'} />
                     Github
                 </a>
