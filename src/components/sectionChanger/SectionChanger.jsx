@@ -20,23 +20,68 @@ const SectionChanger = props => {
             return;
         }
 
-        if (componentName === 'projects' || componentName === '') {
-            //console.log("Projects or Header: ", topDistance, " ", bottomDistance);
-            if (topDistance <= 25 && bottomDistance > 25) {
+        // if (componentName === '') {
+        //     //
+        //     // if (topDistance <= 25 && bottomDistance > 25) {
+        //     //     setActiveSectionHandler(activeSection, setActiveSection);
+        //     // }
+        //
+        //     //console.log(activeSection);
+        //
+        //     if (componentName === 'projects') {
+        //         console.log("PROJECTS Window  top: ",topDistance - window.innerHeight);
+        //         console.log("PROJECTS Window  bottom: ",bottomDistance - window.innerHeight);
+        //         if(topDistance - window.innerHeight <= 500 && bottomDistance - window.innerHeight > -320) {
+        //             setActiveSectionHandler(activeSection, setActiveSection);
+        //         }
+        //     }
+        // }
+
+        if (componentName === '') {
+            if ((window.innerHeight - bottomDistance) < 450 ) {
                 setActiveSectionHandler(activeSection, setActiveSection);
             }
+        }
+
+
+        if (componentName === 'projects') {
+            // console.log(window.innerHeight);
+            // console.log("PROJECTS Window  top: ",topDistance);
+            // console.log(((window.innerHeight - topDistance) / window.innerHeight) * 100);
+            // console.log("PROJECTS Window bottom", (DOM_element.current.clientHeight + topDistance) - window.innerHeight)
+
+            //console.log(window.innerHeight - topDistance);
+
+            if ((window.innerHeight - bottomDistance) < 250 && (window.innerHeight - topDistance) > 450) {
+                setActiveSectionHandler(activeSection, setActiveSection)
+            }
+
         }
 
         if (componentName === 'about') {
             //console.log("About ", topDistance, " ", bottomDistance - window.innerHeight);
-            if (topDistance <= 25 && (bottomDistance - window.innerHeight) > -230 ) {
-                setActiveSectionHandler(activeSection, setActiveSection);
+            // if (topDistance - window.innerHeight >= 320 && (bottomDistance - window.innerHeight) > -230 ) {
+            //     setActiveSectionHandler(activeSection, setActiveSection);
+            // }
+            //console.log("ABOUT Window percents top: ", window.innerHeight - topDistance);
+            //console.log("ABOUT Window percents bottom: ", window.innerHeight - bottomDistance);
+
+            if(window.innerHeight - bottomDistance < 250 && window.innerHeight - topDistance >= 250) {
+                setActiveSectionHandler(activeSection, setActiveSection)
             }
+
         }
 
         if (componentName === 'contact') {
             //console.log("Contact: ", bottomDistance - window.innerHeight)
-            if ((bottomDistance - window.innerHeight) <= 70) {
+            // if ((bottomDistance - window.innerHeight) <= 70) {
+            //     setActiveSectionHandler(activeSection, setActiveSection)
+            // }
+            //console.log("CONTACT Window percents top: ", window.innerHeight - topDistance);
+            // console.log("CONTACT Window percents bottom: ", window.innerHeight - bottomDistance);
+
+            //console.log("Contact, < 250", topDistance - window.innerHeight);
+            if ((topDistance - window.innerHeight) <= -250) {
                 setActiveSectionHandler(activeSection, setActiveSection)
             }
         }

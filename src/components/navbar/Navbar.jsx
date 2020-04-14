@@ -120,7 +120,7 @@ const Navbar = (props) => {
             <nav className={(isOpen) ? 'navbar_container active' : 'navbar_container'}>
                 <ul>
                     <li>
-                        <Link to={'/#projects'} id={'#projects_snapshots-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
+                        <Link to={'/#projects'} id={'#projects-link'} className='link' onClick={handleClick} onMouseOver={handleHover} onMouseOut={handleMouseOut}>
                             <Text textId="navigation_projects"/>
                         </Link>
                     </li>

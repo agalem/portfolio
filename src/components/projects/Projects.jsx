@@ -68,7 +68,7 @@ const Projects = () => {
     };
 
     return (
-        <section className='projects_container' id={'#projects_snapshots'}>
+        <section className='projects_container' id={'#projects'}>
             <div className='projects_intro'>
                 <div className='projects_intro-text'>
                     <p>
@@ -113,7 +113,7 @@ const Projects = () => {
                              TitleComponent={<Text textId={'projectPortfolioTitle'}/>}
                              technologies={['React', 'CSS']}
                              linkLive={'https://agalem.github.io/'}
-                             linkCode={'https://github.com/agalem/agalem.github.io'}
+                             linkCode={'https://github.com/agalem/portfolio'}
                     />
 
                 }
