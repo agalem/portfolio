@@ -183,6 +183,21 @@
     }
     .container--project_description {
         margin-left: 30px;
+        max-width: 80vw;
+    }
+    .modal_block.wide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 335px) {
+    .modal_btn {
+        right: 90px;
+    }
+    .modal_content {
+        width: 60%;
     }
 }
 

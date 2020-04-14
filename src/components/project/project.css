@@ -8,9 +8,10 @@
     padding: 0;
     cursor: pointer;
     background-repeat: no-repeat;
-    background-size: 100% 250px;
+    background-size: contain;
     position: relative;
     overflow: hidden;
+    border: none;
 }
 
 .project_container:hover .project_container--overflow {
@@ -34,4 +35,14 @@
     font-size: 35px;
 }
 
+@media screen and (max-width: 500px) {
+    .project_container {
+        background: transparent;
+        background-size: contain;
+        min-height: 200px;
+        background-repeat: no-repeat;
+        border: none;
+        margin: 0;
+    }
+}
 
