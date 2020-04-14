@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
+import {useContext} from "react";
+import {LanguageContext} from "../../contexts/LanguageContext";
 import {ReactComponent as Logo} from "../../assets/images/developer.svg";
 import './about.css';
 
@@ -8,6 +10,24 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Text from "../text/Text";
 
 const About = () => {
+    const [textToDisplay, setTextToDisplay] = useState('');
+    const aboutText = useRef(null);
+    const languageContext = useContext(LanguageContext);
+
+    useEffect(() => {
+        const text = aboutText.current.innerText;
+        setTextToDisplay(text);
+    }, []);
+
+    const handleTextChange = () => {
+        const text = aboutText.current.innerText;
+        setTextToDisplay(text);
+    };
+
+    useEffect(() => {
+        handleTextChange()
+    }, [languageContext.language.id]);
+
     return (
         <section className='about_container' id={'#about'}>
             <h2 className='about_title'>
@@ -21,11 +41,12 @@ const About = () => {
                         <span className='about--img_border--inner'/>
                     </a>
                 </div>
-                <p className='about_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a varius ante,
-                    et bibendum quam. Nulla maximus mi magna, nec auctor erat mattis sed. Ut
-                    maximus ligula augue, vitae volutpat justo blandit nec. Aliquam erat volutpat.
-                    Aliquam libero justo, hendrerit eu dapibus in, suscipit id augue. Integer sed
-                    odio congue, porta nibh et, vulputate ligula.</p>
+                <p style={{display: 'none'}} ref={aboutText} >
+                    <Text style={{ display: 'none' }} textId={"aboutMeText"}/>
+                </p>
+                <p className='about_text' >
+                    <span dangerouslySetInnerHTML={{__html: textToDisplay}}/>
+                </p>
             </div>
             <div className={"icons_container"}>
                 <FontAwesomeIcon icon={faHtml5} className={'icon--tech'} style={{color: '#E44D26'}}/>

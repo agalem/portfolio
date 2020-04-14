@@ -87,7 +87,7 @@ const Header = () => {
                 className='header_text-typed'
                 strings={[
                     'JavaScript Developer',
-                    'Front End Developer',
+                    'Front-End Developer',
                 ]}
                 typeSpeed={80}
                 backSpeed={50}
