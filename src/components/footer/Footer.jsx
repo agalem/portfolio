@@ -7,7 +7,7 @@ import {faMugHot} from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     return (
-        <footer className={'footer_container'}>
+        <footer className='footer_container'>
             <p>Made with <FontAwesomeIcon icon={faHeart}/> & <FontAwesomeIcon icon={faMugHot}/> by Aga Lempaszek</p>
         </footer>
     )

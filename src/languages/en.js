@@ -6,7 +6,7 @@ const en = {
     projects: "Projects",
     about: "About me",
     contact: "Contact me",
-    contactMail: "Send a mail",
+    contactMail: "Send me a mail",
     desc: "Description",
     projectLive: "Live",
     projectCode: "Code",
@@ -31,14 +31,14 @@ const en = {
     projectCardTitle: "React + Typescript Form",
     projectSudoku: "Application for solving Sudoku. Created in vanilla JavaScript, styled with CSS.",
     projectSudokuTitle: "Sudoku",
-    template37: "Website template from facebook group \"Weekly Web Dev Challange\". Created in HTML, SCSS and JavaScript (+jQuery)",
-    template37Title: "Project",
-    templateBike: "Website template from facebook group \"Weekly Web Dev Challange\". Created in HTML, SCSS and JavaScript (+jQuery)",
-    templateBikeTitle: "Project",
-    template17: "Project is created in HTML, SCSS, and JavaScript. Design comes from the facebook group \"Weekly web dev challenge\"",
-    template17Title: "Project",
-    template3: "Project is created in HTML, SCSS with a little addition of jQuery. It's the first webside I've made. Design is found online.",
-    template3Title: "Project"
+    template37: "Landing page. Design comes from facebook group \"Weekly Web Dev Challange\". Created in HTML, SCSS and JavaScript (+jQuery)",
+    template37Title: "Landing page",
+    templateBike: "Landing page. Design comes from facebook group \"Weekly Web Dev Challange\". Created in HTML, SCSS and JavaScript (+jQuery)",
+    templateBikeTitle: "Landing page",
+    template17: "Landing page  created in HTML, SCSS, and JavaScript. Design comes from the facebook group \"Weekly web dev challenge\"",
+    template17Title: "Landing page",
+    template3: "Landing page created in HTML, SCSS with a little addition of jQuery. It's the first webside I've made. Design is found online.",
+    template3Title: "Landing page"
 };
 
 export default en;

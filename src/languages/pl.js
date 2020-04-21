@@ -31,14 +31,14 @@ const pl = {
     projectCardTitle: "Formularz React + Typescript",
     projectSudoku: "Aplikacja do rozwiązywania sudoku napisana w czystym JavaScript. Do stylowania użyłam CSS.",
     projectSudokuTitle: "Sudoku",
-    template37: "Odtworzony projekt strony pochodzący z facabookowej grupy \"Weekly Web Dev Challange\". Stworzona w HTML, SCSS, oraz JavaScript (z jQuery).",
-    template37Title: "Projekt",
-    templateBike: "Odtworzony projekt strony pochodzący z facabookowej grupy \"Weekly Web Dev Challange\". Stworzona w HTML, SCSS, oraz JavaScript (z jQuery).",
-    templateBikeTitle: "Projekt",
-    template17: "Projekt stworzony w  HTML, SCSS, oraz JavaScript. Design pochodzi z facebookowej grupy \"Weekly web dev challenge\"",
-    template17Title: "Projekt",
-    template3: "Projekt stworzony w HTML, SCSS oraz z niewielkim dodatkiem jQuery. Jest to pierwsza stworzona przeze mnie strona internetowa, odwzorowana z nalezionego w sieci projektu",
-    template3Title: "Projekt"
+    template37: "Landing page. Projekt pochodzi z facabookowej grupy \"Weekly Web Dev Challange\". Stworzony w HTML, SCSS, oraz JavaScript (z jQuery).",
+    template37Title: "Landing page",
+    templateBike: "Landing page. Projekt pochodzi z facabookowej grupy \"Weekly Web Dev Challange\". Stworzony w HTML, SCSS, oraz JavaScript (z jQuery).",
+    templateBikeTitle: "Landing page",
+    template17: "Landing page stworzony w  HTML, SCSS, oraz JavaScript. Design pochodzi z facebookowej grupy \"Weekly web dev challenge\"",
+    template17Title: "Landing page",
+    template3: "Landing page stworzony w HTML, SCSS oraz z niewielkim dodatkiem jQuery. Jest to pierwsza stworzona przeze mnie strona internetowa. Design został znaleziony w sieci.",
+    template3Title: "Landing page"
 };
 
 export default pl;

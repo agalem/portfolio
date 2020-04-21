@@ -1,22 +1,19 @@
-import React, { useState } from "react";
+import React, {useRef} from "react";
 import './contact.css';
 import mail from '../../assets/images/mail.jpg';
 
-import {faPaperPlane} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import Text from "../text/Text";
-import Modal from "../modal/Modal";
+import {faGithubSquare, faLinkedin} from "@fortawesome/free-brands-svg-icons";
+import {faEnvelopeOpenText, faPaperPlane} from '@fortawesome/free-solid-svg-icons';
 
 const Contact = () => {
-    const [isModalVisible, setModalVisible] = useState(false);
+    const mailBtn = useRef(null);
 
-    const handleClick = () => {
-        setModalVisible(true);
+    const sendMail = () => {
+        const {name, domain, tld} =  mailBtn.current.dataset;
+        window.location.href = 'mailto:' + name + '@' + domain + '.' + tld;
     };
-
-    const hideModal = () => {
-        setModalVisible(false);
-    }
 
     return (
         <section className={'contact_container'} id={'#contact'}>
@@ -29,13 +26,38 @@ const Contact = () => {
                     </a>
                 </div>
             </div>
-            <button className={'contact_btn'} onClick={handleClick}>
+            <p className={'contact_text'}>
                 <span>
                     <FontAwesomeIcon icon={faPaperPlane} className={'icon_paper-plane'}/>
                 </span>
                 <Text textId="contact"/>
-            </button>
-            <Modal type={'contact'} isVisible={isModalVisible} hideModal={hideModal}/>
+            </p>
+            <div className={'contact_links'}>
+                <p className={'link_row'}>
+                    <a href={'https://www.linkedin.com/in/agalem/'} target={'_blank'} rel="noopener noreferrer" className={'contact_link'}>
+                        <FontAwesomeIcon icon={faLinkedin} className={'brand_icon'}/>
+                        Linkedin
+                    </a>
+                </p>
+                <p className={'link_row'}>
+                    <a href={'https://github.com/agalem'} target={'_blank'} rel="noopener noreferrer" className={'contact_link'}>
+                        <FontAwesomeIcon icon={faGithubSquare} className={'brand_icon'} />
+                        Github
+                    </a>
+                </p>
+                <p className={'link_row'}>
+                    <button className={'contact_link'}
+                            data-name={"aga.lempaszek94"}
+                            data-domain={"google"}
+                            data-tld={"com"}
+                            ref={mailBtn}
+                            onClick={sendMail}
+                    >
+                        <FontAwesomeIcon icon={faEnvelopeOpenText} className={'brand_icon'}/>
+                        <Text textId={"contactMail"}/>
+                    </button>
+                </p>
+            </div>
         </section>
     )
 };

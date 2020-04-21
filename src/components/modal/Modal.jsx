@@ -1,11 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 import './modal.css';
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
-import {faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {faGithubSquare} from '@fortawesome/free-brands-svg-icons';
-import {faEnvelopeOpenText} from "@fortawesome/free-solid-svg-icons";
 import {faSpaceShuttle} from "@fortawesome/free-solid-svg-icons";
 
 import Text from '../text/Text';
@@ -24,56 +22,52 @@ const ModalBackground = props => {
     )
 };
 
-const ContactModal = props => {
-    const mailBtn = useRef(null);
-
-    const sendMail = () => {
-        const {name, domain, tld} =  mailBtn.current.dataset;
-        window.location.href = 'mailto:' + name + '@' + domain + '.' + tld;
-    };
-
-    return (
-        <section className={'modal_content'}>
-            <h3 className={'modal_title'} style={{color: props.headerColor}}>
-                <Text textId={"contact"}/>
-            </h3>
-            <p className={'modal_row'}>
-                <a href={'https://www.linkedin.com/in/agalem/'} target={'_blank'} rel="noopener noreferrer" className={'modal_link'}>
-                    <FontAwesomeIcon icon={faLinkedin} className={'brand_icon'}/>
-                    Linkedin
-                </a>
-            </p>
-            <p className={'modal_row'}>
-                <a href={'https://github.com/agalem'} target={'_blank'} rel="noopener noreferrer" className={'modal_link'}>
-                    <FontAwesomeIcon icon={faGithubSquare} className={'brand_icon'} />
-                    Github
-                </a>
-            </p>
-            <p className={'modal_row'}>
-                <button className={'modal_link'}
-                   data-name={"aga.lempaszek94"}
-                   data-domain={"google"}
-                   data-tld={"com"}
-                   ref={mailBtn}
-                   onClick={sendMail}
-                >
-                    <FontAwesomeIcon icon={faEnvelopeOpenText} className={'brand_icon'}/>
-                    <Text textId={"contactMail"}/>
-                </button>
-            </p>
-        </section>
-    )
-};
+// const ContactModal = props => {
+//     const mailBtn = useRef(null);
+//
+//     const sendMail = () => {
+//         const {name, domain, tld} =  mailBtn.current.dataset;
+//         window.location.href = 'mailto:' + name + '@' + domain + '.' + tld;
+//     };
+//
+//     return (
+//         <section className={'modal_content'}>
+//             <h3 className={'modal_title'} style={{color: props.headerColor}}>
+//                 <Text textId={"contact"}/>
+//             </h3>
+//             <p className={'modal_row'}>
+//                 <a href={'https://www.linkedin.com/in/agalem/'} target={'_blank'} rel="noopener noreferrer" className={'modal_link'}>
+//                     <FontAwesomeIcon icon={faLinkedin} className={'brand_icon'}/>
+//                     Linkedin
+//                 </a>
+//             </p>
+//             <p className={'modal_row'}>
+//                 <a href={'https://github.com/agalem'} target={'_blank'} rel="noopener noreferrer" className={'modal_link'}>
+//                     <FontAwesomeIcon icon={faGithubSquare} className={'brand_icon'} />
+//                     Github
+//                 </a>
+//             </p>
+//             <p className={'modal_row'}>
+//                 <button className={'modal_link'}
+//                    data-name={"aga.lempaszek94"}
+//                    data-domain={"google"}
+//                    data-tld={"com"}
+//                    ref={mailBtn}
+//                    onClick={sendMail}
+//                 >
+//                     <FontAwesomeIcon icon={faEnvelopeOpenText} className={'brand_icon'}/>
+//                     <Text textId={"contactMail"}/>
+//                 </button>
+//             </p>
+//         </section>
+//     )
+// };
 
 const ProjectModal = props => {
     const backgrounds = ['#abccae', '#00a30a', '#f9fff0', '#d9b0ff', '#b3abcc'];
     const colors = ['#000', '#fff', '#000', '#000', '#000'];
 
-    const {snapshot, title, description, technologies, linkLive, linkCode, TextComponent, TitleComponent} = props;
-
-    useState(() => {
-        console.log(TextComponent);
-    }, [])
+    const {snapshot, technologies, linkLive, linkCode, TextComponent, TitleComponent} = props;
 
     return (
         <section className={'modal_content'}>
@@ -98,7 +92,7 @@ const ProjectModal = props => {
                     <div className={'container--project_description'}>
                         <p className={'project_description'}>
                             {TextComponent}
-                            <p><Text textId={"projectTechStack"}/></p>
+                            <span><Text textId={"projectTechStack"}/></span>
                         </p>
                         <div className={'project_stack'}>
                             {
@@ -125,9 +119,9 @@ const Modal = props => {
                     <FontAwesomeIcon icon={faTimes} className={'modal_icon--shadow'}/>
                     <FontAwesomeIcon icon={faTimes} className={'modal_icon'} />
                 </button>
-                {(type.toLowerCase() === 'contact') &&
-                <ContactModal headerColor={'#66c44e'} />
-                }
+                {/*{(type.toLowerCase() === 'contact') &&*/}
+                {/*<ContactModal headerColor={'#66c44e'} />*/}
+                {/*}*/}
                 {(type.toLowerCase() === 'project') &&
                 <ProjectModal headerColor={'#458FFF'}
                               snapshot={snapshot}

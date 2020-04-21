@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './projects.css';
+import './filter.css';
 
 import Project from "../project/Project";
-import Filter from "../filter/Filter";
 import Text from "../text/Text";
 import Modal from "../modal/Modal";
 
@@ -17,13 +17,14 @@ import FilterBtn from "../filterBtn/filterBtn";
 
 const Projects = () => {
     const [isModalVisible, setModalVisible] = useState(false);
-    const [activeFilters, ] = useState(["HTML", "CSS", "SCSS", "JavaScript", "React"]);
+    const [activeFilters, ] = useState(["HTML", "CSS", "SCSS", "JavaScript", "React", "Typescript"]);
 
     const [showHTML, setShowHTML] = useState(true);
     const [showCSS, setShowCSS] = useState(true);
     const [showSCSS, setShowSCSS] = useState(true);
     const [showJavaScript, setShowJavaScript] = useState(true);
     const [showReact, setShowReact] = useState(true);
+    const [showTypescript, setShowTypescript] = useState(true);
 
     const [modalData, setModalData] = useState({
         background: null,
@@ -62,6 +63,9 @@ const Projects = () => {
             case 'React':
                 setShowReact(isActive);
                 break;
+            case 'TypeScript':
+                setShowTypescript(isActive);
+                break;
             default:
                 break;
         }
@@ -75,7 +79,7 @@ const Projects = () => {
                         <Text textId={"projectsIntro"}/>
                     </p>
                     <p>
-                        <Text textId={"projectsIntroMore"}/><a href={'https://github.com/agalem'} target={"_blank"} rel={"noopener noreferer"} >github</a>
+                        <Text textId={"projectsIntroMore"}/><a href={'https://github.com/agalem'} target={"_blank"} rel="noopener noreferrer" >github</a>
                     </p>
                 </div>
                 <h2 className='projects_title'>
@@ -101,6 +105,9 @@ const Projects = () => {
                     <li>
                         <FilterBtn text={'React'}  activeBtn={activeFilters.indexOf('React') !== -1} filter={handleClick}/>
                     </li>
+                    <li>
+                        <FilterBtn text={'TypeScript'} activeBtn={activeFilters.indexOf('Typescript') !== -1} filter={handleClick}/>
+                    </li>
                 </ul>
             </div>
 
@@ -118,7 +125,7 @@ const Projects = () => {
 
                 }
                 {
-                    (showReact || showJavaScript) &&
+                    (showReact || showJavaScript || showTypescript) &&
 
                     <Project showModal={showModal} background={card_form}
                              TextComponent={<Text textId={'projectCard'}/>}
@@ -172,8 +179,8 @@ const Projects = () => {
                              TextComponent={<Text textId={'template17'}/>}
                              TitleComponent={<Text textId={'template17Title'} />}
                              technologies={['HTML', 'SCSS', 'JavaScript']}
-                             linkLive={'https://github.com/agalem/template17'}
-                             linkCode={'https://agalem.github.io/template17/'}
+                             linkLive={'https://agalem.github.io/template17/'}
+                             linkCode={'https://github.com/agalem/template17'}
                     />
                 }
 

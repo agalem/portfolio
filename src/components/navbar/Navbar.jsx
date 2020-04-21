@@ -9,12 +9,56 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from '@fortawesome/free-solid-svg-icons';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
 
+
 const Navbar = (props) => {
     const {hash} = props.location;
     const [isOpen, setIsOpen] = useState(false);
     const [activePosition, setActivePosition] = useState(-250);
     const [selectedLink, setSelectedLink] = useState(`${hash}-link`);
     const scrollContext = useContext(ScrollContext);
+
+    const getOffset = (elem) => {
+        let x  = 0;
+        let y = 0;
+        while (elem && !isNaN(elem.offsetLeft) && !isNaN(elem.offsetTop)) {
+            x += elem.offsetLeft - elem.scrollLeft;
+            y += elem.offsetTop - elem.scrollTop;
+            elem = elem.offsetParent;
+        }
+        return { top: y, left: x};
+    };
+
+    const getWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //align active section underline while window resize
+    //IIFE
+    (function useCurrentWidth() {
+        let [width, setWidth] = useState(getWidth);
+
+        useEffect(() => {
+            let timeoutId = null;
+
+            const resizeListener = () => {
+                clearTimeout(timeoutId);
+                if (width !== getWidth()) {
+                    timeoutId = setTimeout(() => setWidth(getWidth()), 150);
+                    const element = document.getElementById(selectedLink);
+                    if (element) {
+                        const offsetPosition = getOffset(element);
+                        setActivePosition(offsetPosition.left - 20);
+                    }
+                }
+            };
+
+            window.addEventListener('resize', resizeListener);
+
+            return () => {
+                window.removeEventListener('resize', resizeListener);
+            }
+
+        }, [width]);
+
+        return width;
+    })();
 
     useEffect(() => {
         const element = document.getElementById(selectedLink);
@@ -32,6 +76,7 @@ const Navbar = (props) => {
         if (element) {
             animateDOMElement(element);
             const offsetPosition = getOffset(element);
+            setSelectedLink(scrollContext.activeSection + "-link");
             setActivePosition(offsetPosition.left - 20);
         }
     }, [scrollContext.activeSection]);
@@ -85,17 +130,6 @@ const Navbar = (props) => {
         setTimeout(() => {
             element.classList.remove('animate');
         }, 500);
-    };
-
-    const getOffset = (elem) => {
-        let x  = 0;
-        let y = 0;
-        while (elem && !isNaN(elem.offsetLeft) && !isNaN(elem.offsetTop)) {
-            x += elem.offsetLeft - elem.scrollLeft;
-            y += elem.offsetTop - elem.scrollTop;
-            elem = elem.offsetParent;
-        }
-        return { top: y, left: x};
     };
 
     const handleMobileMenu = () => {
