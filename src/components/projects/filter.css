@@ -29,3 +29,9 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+    .filter_container {
+        padding: 0;
+    }
+}

@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
+import { Link } from "react-router-dom";
 import './header.css';
 import Particles from "react-particles-js";
 import Typed from 'react-typed';
@@ -6,14 +7,20 @@ import Typed from 'react-typed';
 import Navbar from "../navbar/Navbar";
 import Text from "../text/Text";
 import {LanguageContext} from "../../contexts/LanguageContext";
+import en from "../../languages/en";
+import pl from "../../languages/pl";
+
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faAngleDoubleDown} from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
-    const languageContext = useContext(LanguageContext)
+    const languageContext = useContext(LanguageContext);
     const [language, setLanguage] = useState(languageContext.language.id);
 
     useEffect(() => {
         setLanguage(languageContext.language.id);
     },[languageContext.language.id]);
+
 
     return (
         <header className="header_container">
@@ -83,16 +90,26 @@ const Header = () => {
             <p className={(language === 'pl') ? 'header_text-outer media_pl' : 'header_text-outer media_en'}>
                 <Text textId="welcomeHeader"/>
             </p>
-            <Typed
-                className='header_text-typed'
-                strings={[
-                    'JavaScript Developer',
-                    'Front-End Developer',
-                ]}
-                typeSpeed={80}
-                backSpeed={50}
-                loop
-            />
+            {
+                language === 'en' &&
+                <Typed
+                    className='header_text-typed text-typed--en'
+                    strings={[en.typedText]}
+                    typeSpeed={80}
+                />
+            }
+            {
+                language === 'pl' &&
+                <Typed
+                    className='header_text-typed text-typed--pl'
+                    strings={[pl.typedText]}
+                    typeSpeed={80}
+                />
+            }
+            <Link to={'#projects'} className={"header_action"}>
+                <p className={"header_action-text"}><Text textId={"headerActionText"}/></p>
+                <FontAwesomeIcon icon={faAngleDoubleDown} className={'header_icon'}/>
+            </Link>
         </header>
     )
 };

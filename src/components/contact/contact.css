@@ -156,5 +156,17 @@ button.contact_link {
 
     .contact_link {
         margin-bottom: 150px;
+        text-align: left;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 360px){
+    .contact_text {
+        font-size: 3rem;
+    }
+    .icon_paper-plane {
+        font-size: 2rem;
+        margin-right: 10px;
     }
 }

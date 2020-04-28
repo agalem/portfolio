@@ -1,5 +1,7 @@
 const pl = {
     welcomeHeader: 'Cześć, jestem Aga',
+    typedText: 'Moje supermoce to Front End &amp; JavaScript.',
+    headerActionText: 'Zobacz moje prace',
     navigation_projects: 'Projekty',
     navigation_about: 'O mnie',
     navigation_contact: 'Kontakt',

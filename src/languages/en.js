@@ -1,5 +1,7 @@
 const en = {
     welcomeHeader: 'Hi. I\'m Aga',
+    typedText: 'My superpowers are Front End &amp; JavaScript.',
+    headerActionText: 'See my work',
     navigation_projects: 'Projects',
     navigation_about: 'About',
     navigation_contact: 'Contact',
@@ -22,7 +24,7 @@ const en = {
         "\n" +
         "                    During my professional experience, I've also worked on <span style='background-color: #a3d7ed'>Salesforce</span> platform (mostly with Lightning framework).",
     projectShowMore: 'Show more',
-    projectsIntro: "Nothing says more about developer than the projects she has in a portfolio.\n" +
+    projectsIntro: "Nothing says more about developers than the projects in their's portfolio.\n" +
         "                        There you can find websites and applications I've been working on.",
     projectsIntroMore: "More projects are on my ",
     projectPortfolio: "My current portfolio website. Build with React library. Uses React Hooks (state management) and React Context (scroll and language context). Styled with clean CSS stylesheets",
