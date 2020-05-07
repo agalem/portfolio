@@ -6,6 +6,7 @@ const en = {
     navigation_about: 'About',
     navigation_contact: 'Contact',
     projects: "Projects",
+    projectsFilter: "Filter projects by technology:",
     about: "About me",
     contact: "Contact me",
     contactMail: "Send me a mail",

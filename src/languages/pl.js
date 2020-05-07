@@ -6,6 +6,7 @@ const pl = {
     navigation_about: 'O mnie',
     navigation_contact: 'Kontakt',
     projects: "Projekty",
+    projectsFilter: "Filtruj projekty po technologii:",
     about: "O mnie",
     contact: "Skontaktuj się ze mną",
     contactMail: "Wyślij wiadomość",

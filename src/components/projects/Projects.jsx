@@ -88,7 +88,7 @@ const Projects = () => {
             </div>
 
             <div className='filter_container'>
-                <p>Filter projects by technology</p>
+                <p><Text textId='projectsFilter'/></p>
                 <ul>
                     <li>
                         <FilterBtn text={'HTML'} activeBtn={activeFilters.indexOf('HTML') !== -1} filter={handleClick}/>
